@@ -7,11 +7,13 @@ const url = `http://gateway.marvel.com/v1/public/characters?ts=${ts}&apikey=${pu
 //url para acessar no navegador = `http://gateway.marvel.com/v1/public/characters?ts=1675253895&apikey=10a3b1dae28508130a01a95596626d45&hash=03134fbc9a94756e12225662a66630b9&limit=10`;
 
 
-function inserirNoHTML(marvel) {
+function inserirNoHTML(character) {
     return `
             <li class="marvel-character>
-                <span class="name">${marvel.name}</span>
-                <img src="${marvel.thumbnail.path}.${marvel.thumbnail.extension}">
+                <p class="name">${character.name}</p>
+                <p class="description">${character.description}</p>
+                <p class="comics">${character.comics}</p>
+                <img src="${character.photo}.${character.extension}">
             </li>
     `
 }
