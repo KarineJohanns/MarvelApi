@@ -12,7 +12,6 @@ function convertMarvelApitoMarvel(marvelDetail) {
     return personagem;
 }
 
-console.log(convertMarvelApitoMarvel(personagem.nome))
 
 marvelApi.getMarvelDetail = () => {
     const ts = "1675253895";
@@ -28,11 +27,6 @@ marvelApi.getMarvelDetail = () => {
       
       .catch((error) => console.error(error));
 }
-
-
-
-
-
 
 marvelApi.getCharacters = () => {
     const offset = 0;

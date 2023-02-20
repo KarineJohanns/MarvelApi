@@ -9,13 +9,11 @@ const url = `http://gateway.marvel.com/v1/public/characters?ts=${ts}&apikey=${pu
 
 function inserirNoHTML(personagem) {
     return `
-            <li class="marvel-character>
-                <p class="name">${personagem.name}</p>
-                <p class="description">${personagem.description}</p>
-                <p class="comics"></p>
-                <img src="${personagem.foto}.${personagem.extensao}">
-            </li>
-    `
+        <li class="personagem" onclick='mostrarDetalhes("${personagem.name}")'>
+            <img src="${personagem.thumbnail.path}.${personagem.thumbnail.extension}" alt="Imagem do personagem" class="personagem-imagem">
+            <span class="personagem-nome">${personagem.name}</span>
+        </li>
+    `;
 }
 
 const marvelList = document.getElementById('marvelList')
@@ -28,3 +26,4 @@ marvelApi.getCharacters().then((charactersList = []) => {
     const novoHtml = novaLista.join('')
     marvelList.innerHTML += novoHtml
 })
+
