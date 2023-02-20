@@ -7,13 +7,13 @@ const url = `http://gateway.marvel.com/v1/public/characters?ts=${ts}&apikey=${pu
 //url para acessar no navegador = `http://gateway.marvel.com/v1/public/characters?ts=1675253895&apikey=10a3b1dae28508130a01a95596626d45&hash=03134fbc9a94756e12225662a66630b9&limit=10`;
 
 
-function inserirNoHTML(character) {
+function inserirNoHTML(personagem) {
     return `
             <li class="marvel-character>
-                <p class="name">${character.name}</p>
-                <p class="description">${character.description}</p>
-                <p class="comics">${character.comics}</p>
-                <img src="${character.photo}.${character.extension}">
+                <p class="name">${personagem.name}</p>
+                <p class="description">${personagem.description}</p>
+                <p class="comics"></p>
+                <img src="${personagem.foto}.${personagem.extensao}">
             </li>
     `
 }
@@ -27,5 +27,4 @@ marvelApi.getCharacters().then((charactersList = []) => {
     
     const novoHtml = novaLista.join('')
     marvelList.innerHTML += novoHtml
-
 })
