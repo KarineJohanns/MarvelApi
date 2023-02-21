@@ -31,7 +31,7 @@
 }
 
 .personagem-imagem {
-    width: 15rem;
+    max-width: 15rem;
     margin: 1rem;
     border: 1px solid black;
     border-radius: 5px;
