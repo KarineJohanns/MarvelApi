@@ -1,5 +1,5 @@
 
-class Character {
+class Personagem {
     name;
     description;
     photo;
