@@ -13,7 +13,7 @@ const loadMoreButton = document.getElementById('loadMoreButton');
 function inserirNoHTML(personagem) {
     return `
         <li class="personagem" onclick='showDetails("${personagem.id}")'>
-            <img src="${personagem.thumbnail.path}.${personagem.thumbnail.extension}" alt="Imagem do personagem" class="personagem-imagem">
+            <img src="${personagem.thumbnail.path}/portrait_uncanny.${personagem.thumbnail.extension}" alt="Imagem do personagem" class="personagem-imagem">
             <span class="personagem-nome">${personagem.name}</span>
         </li>
     `;
@@ -38,7 +38,7 @@ function inserirNoHTML2(personagem) {
         <div id="modal">
             <span id="name">${personagem.name}</span>
             <div class="modal-details">
-                <img id="photoDetails" src="${personagem.thumbnail.path}.${personagem.thumbnail.extension}" alt="">
+                <img id="photoDetails" src="${personagem.thumbnail.path}/portrait_uncanny.${personagem.thumbnail.extension}" alt="">
                 <span id="description">${personagem.description}</span>
             </div>
         </div>
@@ -85,3 +85,27 @@ window.addEventListener('scroll', () => {
 function pesquisa(e) {
 
 }
+
+// BOTÃO VOLTAR AO TOPO
+const buttonTop = document.querySelector('.smoothscroll-top');
+
+if(buttonTop) {
+    function scrollTop() {
+        document.addEventListener('scroll', () => {
+            if(window.pageXOffset > 100) {
+                buttonTop.classList.add('show');
+            } else {
+                buttonTop.classList.remove('show');
+            }
+        })
+
+        buttonTop.addEventListener('click', () => {
+            window.scroll({
+                top: 0,
+                behavior:'smooth'
+            })
+        })
+    }
+    scrollTop();
+}
+
