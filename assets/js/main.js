@@ -4,22 +4,26 @@ const ts = '1675253895';
 const publicKey = '10a3b1dae28508130a01a95596626d45';
 const md5 = '03134fbc9a94756e12225662a66630b9';
 const url = `http://gateway.marvel.com/v1/public/characters?ts=${ts}&apikey=${publicKey}&hash=${md5}`;
+const pesquisa = 'spider';
+const url2 = `http://gateway.marvel.com/v1/public/characters?ts=${ts}&apikey=${publicKey}&hash=${md5}&nameStartsWith=${pesquisa}`;
 const limit = 20;
 let offset = 0;
+
+
+
 
 const marvelList = document.getElementById('marvelList');
 const loadMoreButton = document.getElementById('loadMoreButton');
 
-function inserirNoHTML(personagem) {
-    return `
-        <li class="personagem" onclick='showDetails("${personagem.id}")'>
-            <img src="${personagem.thumbnail.path}/portrait_uncanny.${personagem.thumbnail.extension}" alt="Imagem do personagem" class="personagem-imagem">
-            <span class="personagem-nome">${personagem.name}</span>
-        </li>
-    `;
-}
-
 function loadMarvelItems(offset, limit) {
+    function inserirNoHTML(personagem) {
+        return `
+            <li class="personagem" onclick='showDetails("${personagem.id}")'>
+                <img src="${personagem.thumbnail.path}/portrait_uncanny.${personagem.thumbnail.extension}" alt="Imagem do personagem" class="personagem-imagem">
+                <span class="personagem-nome">${personagem.name}</span>
+            </li>
+        `;
+    }
     marvelApi.getCharacters(offset, limit).then((charactersList = []) => {
 
         const novoHtml = charactersList.map(inserirNoHTML).join('')
@@ -80,32 +84,25 @@ window.addEventListener('scroll', () => {
     }
 })
 
-// PESQUISA 
-
-function pesquisa(e) {
-
-}
 
 // BOTÃO VOLTAR AO TOPO
-const buttonTop = document.querySelector('.smoothscroll-top');
+const buttonTop = document.querySelector('.botao-topo');
 
-if(buttonTop) {
-    function scrollTop() {
-        document.addEventListener('scroll', () => {
-            if(window.pageXOffset > 100) {
-                buttonTop.classList.add('show');
-            } else {
-                buttonTop.classList.remove('show');
-            }
-        })
+function scrollTop() {
+    document.addEventListener('scroll', () => {
+        if (window.pageYOffset > 100) {
+            buttonTop.classList.add('show');
+        } else {
+            buttonTop.classList.remove('show');
+        }
+    })
 
-        buttonTop.addEventListener('click', () => {
-            window.scroll({
-                top: 0,
-                behavior:'smooth'
-            })
+    buttonTop.addEventListener('click', () => {
+        window.scroll({
+            top: 0,
+            behavior: 'smooth'
         })
-    }
-    scrollTop();
+    })
 }
+scrollTop();
 
