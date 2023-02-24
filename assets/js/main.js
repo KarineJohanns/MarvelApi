@@ -15,23 +15,59 @@ let offset = 0;
 const marvelList = document.getElementById('marvelList');
 const loadMoreButton = document.getElementById('loadMoreButton');
 
+
+function inserirNoHTML(personagem) {
+    return `
+        <li class="personagem" onclick='showDetails("${personagem.id}")'>
+            <img src="${personagem.thumbnail.path}/portrait_uncanny.${personagem.thumbnail.extension}" alt="Imagem do personagem" class="personagem-imagem">
+            <span class="personagem-nome">${personagem.name}</span>
+        </li>
+    `;
+}
+
 function loadMarvelItems(offset, limit) {
-    function inserirNoHTML(personagem) {
-        return `
-            <li class="personagem" onclick='showDetails("${personagem.id}")'>
-                <img src="${personagem.thumbnail.path}/portrait_uncanny.${personagem.thumbnail.extension}" alt="Imagem do personagem" class="personagem-imagem">
-                <span class="personagem-nome">${personagem.name}</span>
-            </li>
-        `;
-    }
     marvelApi.getCharacters(offset, limit).then((charactersList = []) => {
 
         const novoHtml = charactersList.map(inserirNoHTML).join('')
-        marvelList.innerHTML += novoHtml
+        marvelList.innerHTML = novoHtml
     })
 
 }
 loadMarvelItems(offset, limit)
+
+function loadSearchedItems() {
+
+    const inputValue = window.document.getElementById("search-txt").value;
+    if (inputValue.length > 0) {
+        marvelApi.getCharactersSearch(inputValue).then((charactersList = []) => {
+
+            const novoHtml = charactersList.map(inserirNoHTML).join('')
+            marvelList.innerHTML = novoHtml
+        })
+    } else {
+        loadMarvelItems(offset, limit)
+    }
+}
+
+
+window.document.getElementById("search-txt").addEventListener("keypress", (e) => {
+    if (e.keyCode == 13) {
+        loadSearchedItems();
+        return;
+    } 
+    
+})
+
+window.document.getElementById("search-txt").addEventListener('keydown', function(event) {
+    const key = event.key; // const {key} = event; ES6+
+    if (key === "Backspace") {
+        const inputValue = window.document.getElementById("search-txt").value;
+        console.log('inputValue :>> ', inputValue);
+        if (inputValue.length < 1) {
+            loadMarvelItems(offset, limit)
+        }
+    }
+})
 
 // DETALHES DE CADA PERSONAGEM
 const modalToggle = () => {
