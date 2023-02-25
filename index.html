@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Marvel</title>
+    <title>Marvel Personagens</title>
 
     <!-- FONTE ROBOTO -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -23,64 +23,128 @@
     <link rel="stylesheet" href="./assets/css/detalhes.css">
     <link rel="stylesheet" href="./assets/css/styles.css">
     <link rel="stylesheet" href="./assets/css/creditos.css">
+
+    <!-- FAVICON -->
+    <link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon/favicon-16x16.png">
+    <link rel="manifest" href="./favicon/site.webmanifest">
+    <link rel="mask-icon" href="./favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- BOOTSTRAP -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 </head>
 <body>
-    <header id="header">
+    <header>
+        <!-- Modal -->
+        <section class="modal fade" id="modal-contato" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <article class="modal-dialog">
+                <form action="https://api.staticforms.xyz/submit" method="post" class="modal-content">
+                    <input type="hidden" name="accessKey" value="055a8df9-7d2e-4c2f-b55c-c77f299a3c67">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Contato</h5>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <ul class="d-flex justify-content-around fs-4">
+                            <li role="button"><a href="https://wa.me/5549999956721?text=Olá!%20Vi%20seu%20projeto%20da%20Marlvel!" target="_blank" class="text-decoration-none links"><i class="fa-brands fa-square-whatsapp" id="whatsapp" ></i><span> Whatsapp</span></a></li>
+                            <li role="button"><a href="https://github.com/KarineJohanns/KarineJohanns" target="_blank" class="text-decoration-none links"><i class="fa-brands fa-github" id="github"></i><span> Github</span></a></li>
+                            <li role="button"><a href="https://www.linkedin.com/in/karinejohanns/" target="_blank" class="text-decoration-none links"><i class="fa-brands fa-linkedin" id="linkedin"></i><span > Linkedin</span></a></li>
+                        </ul>
+                        <div  class="mb-3">
+                            
+                            <div>
+                                <label for="exampleFormControlInput1" class="form-label">Nome</label>
+                                <input type="text" name="name" class="form-control" id="exampleFormControlInput1" required maxlength="25" minlength="2" placeholder="Seu nome aqui">
+                            </div>
+                            <div>
+                                <label for="exampleFormControlInput1" class="form-label">Email</label>
+                                <input type="email" name="email" class="form-control" id="exampleFormControlInput1" required maxlength="50" placeholder="nome@examplo.com">
+                            </div>
+                          
+                            <div class="mb-3">
+                                <label for="exampleFormControlTextarea1" class="form-label">Deixe sua mensagem</label>
+                                <textarea class="form-control" name="message" id="exampleFormControlTextarea1" rows="3" required maxlength="100" placeholder="Deixe aqui a sua mensagem!"></textarea>
+                            </div>
+                        </div>  
+                        
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" value="Submit" class="btn btn-enviar">Enviar</button>
+                    </div>
+                    <input type="hidden" name="redirectTo" value="index.html">
+                </form>
+            </article>
+        </section>
+        
+        <!-- NAVBAR -->
+        <nav class="navbar">
+            <!-- LOGO -->
+            <div class="logo">
+                <a href="./index.html"><img src="./assets/img/Marvel_Logo.png" alt="Logo Marvel"></a>
+            </div>
+            <!-- CAIXA DE PESQUISA -->
+            <div class="search-box">
+                <input id="search-txt" type="text" name="" placeholder="Procurar">
+                <button onclick="loadSearchedItems()" class="search-btn" href="#"><i class="fas fa-search"></i></button>
+            </div>
+            <!-- NAVEGAÇÃO MENU -->
+            <ul class="nav-links">
+                <!-- CHECKBOX HACK -->
+                <input type="checkbox" id="checkbox_toggle" />
+                <label for="checkbox_toggle" class="hamburger">&#9776;</label>
+                <!-- NAVEGAÇÃO MENUS -->
+                <div class="menu">
+                    <li><a href="./index.html">Início</a></li>
+                    <li><a data-bs-toggle="modal" data-bs-target="#modal-contato">Contato</a></li>
+                </div>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <!-- CONTEUDO -->
+        <section class="content">
+            <h1 id="titulo">PERSONAGENS MARVEL</h1>
+            <ol id="marvelList" class="personagens">
+                <!-- Personagens aqui -->
+
+            </ol>
+        </section>
+
+        <section id="modal-overlay" onclick="modalToggle()">
+            <div id="modal">
+                <span id="number"></span>
+                <img id="photoDetails" src="" alt="">
+                <span id="description"></span>
+            </div>
+        </section>
+        <div class="loader">
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+        </div>
+
+        <!-- BOTÃO VOLTAR AO TOPO -->
+        <div class="botao-topo">
+            <span class="botao-topo-seta"><i class="fa-solid fa-arrow-up"></i></span>
+        </div>
+    </main>
+
+    <!-- RODAPÉ -->
+
+    <footer id="header">
         <div id="header-div">
             <span id="karine">Criado por Karine Johanns</span>
             <span id="marvel">Data provided by Marvel. © 2014 Marvel</span>
         </div>
-    </header>
-    <!-- NAVBAR -->
-    <nav class="navbar">
-        <!-- LOGO -->
-        <div class="logo">
-            <img src="./assets/img/Marvel_Logo.png" alt="Logo Marvel">
-        </div>
-        <!-- CAIXA DE PESQUISA -->
-        <div class="search-box">
-            <input id="search-txt" type="text" name="" placeholder="Procurar">
-            <button onclick="loadSearchedItems()" class="search-btn" href="#"><i class="fas fa-search"></i></button>
-        </div>
-        <!-- NAVEGAÇÃO MENU -->
-        <ul class="nav-links">
-            <!-- CHECKBOX HACK -->
-            <input type="checkbox" id="checkbox_toggle" />
-            <label for="checkbox_toggle" class="hamburger">&#9776;</label>
-            <!-- NAVEGAÇÃO MENUS -->
-            <div class="menu">
-                <li><a href="/">Início</a></li>
-                <li><a href="/">Contato</a></li>
-            </div>
-        </ul>
-    </nav>
-    <!-- CONTEUDO -->
-    <section class="content">
-        <h1 id="titulo">PERSONAGENS MARVEL</h1>
-        <ol id="marvelList" class="personagens">
-            <!-- Personagens aqui -->
-            
-        </ol>
-    </section>
+    </footer>
 
-    <section id="modal-overlay" onclick="modalToggle()">
-        <div id="modal">
-            <span id="number"></span>
-            <img id="photoDetails" src="" alt="">
-            <span id="description"></span>
-        </div>
-    </section>
-    <div class="loader">
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-    </div>
-
-    <!-- BOTÃO VOLTAR AO TOPO -->
-    <div class="botao-topo show">
-        <span class="botao-topo-seta"><i class="fa-solid fa-arrow-up"></i></span>
-    </div>
-    
+    <!-- JS E JS DO BOOTSTRAP -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
     <script src="./assets/js/model.js"></script>
     <script src="./assets/js/marvel-api.js"></script>
     <script src="./assets/js/main.js"></script>

@@ -1,6 +1,7 @@
 #header {
-    display: fixed;
-    bottom: 100;
+    display: absolute;
+    bottom: 0;
+    width: 100%;
     background-color: black;
     color: white;
 }

@@ -2,7 +2,22 @@ body {
     background-image: url(../img/marvelBackground.gif);
     font-family: 'Roboto', sans-serif;
 }
+.links {
+    text-decoration: none !important;
+    color: #212529;
+}
 
+#whatsapp {
+    color: #34af23;
+}
+#linkedin {
+    color: #007bb6
+}
+
+.btn-enviar {
+    color: #fff !important;
+    background-color: #ee171f !important;
+}
 .pagination {
     display: flex;
     flex-direction: row;

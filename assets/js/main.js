@@ -9,9 +9,6 @@ const url2 = `http://gateway.marvel.com/v1/public/characters?ts=${ts}&apikey=${p
 const limit = 20;
 let offset = 0;
 
-
-
-
 const marvelList = document.getElementById('marvelList');
 const loadMoreButton = document.getElementById('loadMoreButton');
 
@@ -126,7 +123,7 @@ const buttonTop = document.querySelector('.botao-topo');
 
 function scrollTop() {
     document.addEventListener('scroll', () => {
-        if (window.pageYOffset > 100) {
+        if (window.pageYOffset >= 100) {
             buttonTop.classList.add('show');
         } else {
             buttonTop.classList.remove('show');
