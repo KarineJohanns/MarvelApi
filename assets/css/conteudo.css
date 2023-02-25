@@ -1,11 +1,11 @@
-#titulo {
+#title {
     color: white;;
     font-size: 3rem;
     text-align: center;
     padding: 1rem;
 }
 
-.personagens {
+.characters {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -14,7 +14,7 @@
     
 }
 
-.personagem {
+.character {
     color: black;
     border: 1px solid black;
     border-radius: 5px;
@@ -26,17 +26,17 @@
     align-items: center;
     flex-direction: column;
 }
-.personagem:hover {
+.character:hover {
     cursor: pointer;
 }
 
-.personagem-imagem {
+.character-img {
     max-width: 15rem;
     margin: 1rem;
     border: 1px solid black;
     border-radius: 5px;
 }
 
-.personagem-nome {
+.character-name {
     margin-bottom: 1rem;
 }

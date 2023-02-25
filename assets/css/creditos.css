@@ -1,4 +1,4 @@
-#header {
+#footer {
     display: absolute;
     bottom: 0;
     width: 100%;
@@ -6,7 +6,7 @@
     color: white;
 }
 
-#header-div {
+#footer-div {
     display: flex;
     justify-content: space-around;
     align-items: center;

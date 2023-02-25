@@ -4,8 +4,6 @@ const ts = '1675253895';
 const publicKey = '10a3b1dae28508130a01a95596626d45';
 const md5 = '03134fbc9a94756e12225662a66630b9';
 const url = `http://gateway.marvel.com/v1/public/characters?ts=${ts}&apikey=${publicKey}&hash=${md5}`;
-const pesquisa = 'spider';
-const url2 = `http://gateway.marvel.com/v1/public/characters?ts=${ts}&apikey=${publicKey}&hash=${md5}&nameStartsWith=${pesquisa}`;
 const limit = 20;
 let offset = 0;
 
@@ -13,11 +11,11 @@ const marvelList = document.getElementById('marvelList');
 const loadMoreButton = document.getElementById('loadMoreButton');
 
 
-function inserirNoHTML(personagem) {
+function insertHtml(character) {
     return `
-        <li class="personagem" onclick='showDetails("${personagem.id}")'>
-            <img src="${personagem.thumbnail.path}/portrait_uncanny.${personagem.thumbnail.extension}" alt="Imagem do personagem" class="personagem-imagem">
-            <span class="personagem-nome">${personagem.name}</span>
+        <li class="character" onclick='showDetails("${character.id}")'>
+            <img src="${character.thumbnail.path}/portrait_uncanny.${character.thumbnail.extension}" alt="Imagem do personagem" class="character-img">
+            <span class="character-name">${character.name}</span>
         </li>
     `;
 }
@@ -25,8 +23,8 @@ function inserirNoHTML(personagem) {
 function loadMarvelItems(offset, limit) {
     marvelApi.getCharacters(offset, limit).then((charactersList = []) => {
 
-        const novoHtml = charactersList.map(inserirNoHTML).join('')
-        marvelList.innerHTML = novoHtml
+        const newHtml = charactersList.map(insertHtml).join('')
+        marvelList.innerHTML = newHtml
     })
 
 }
@@ -38,8 +36,8 @@ function loadSearchedItems() {
     if (inputValue.length > 0) {
         marvelApi.getCharactersSearch(inputValue).then((charactersList = []) => {
 
-            const novoHtml = charactersList.map(inserirNoHTML).join('')
-            marvelList.innerHTML = novoHtml
+            const newHtml = charactersList.map(insertHtml).join('')
+            marvelList.innerHTML = newHtml
         })
     } else {
         loadMarvelItems(offset, limit)
@@ -70,13 +68,13 @@ window.document.getElementById("search-txt").addEventListener('keydown', functio
 const modalToggle = () => {
     document.querySelector('#modal-overlay').classList.toggle('active');
 }
-function inserirNoHTML2(personagem) {
+function insertHtml2(character) {
     return `
         <div id="modal">
-            <span id="name">${personagem.name}</span>
+            <span id="name">${character.name}</span>
             <div class="modal-details">
-                <img id="photoDetails" src="${personagem.thumbnail.path}/portrait_uncanny.${personagem.thumbnail.extension}" alt="">
-                <span id="description">${personagem.description}</span>
+                <img id="photoDetails" src="${character.thumbnail.path}/portrait_uncanny.${character.thumbnail.extension}" alt="">
+                <span id="description">${character.description}</span>
             </div>
         </div>
     `
@@ -86,8 +84,8 @@ const modal = document.getElementById('modal');
 function showDetails(id) {
     marvelApi.getCharactersByID(id).then((charactersList) => {
 
-        const novoHtml = charactersList.map(inserirNoHTML2).join('')
-        modal.innerHTML = novoHtml
+        const newHtml = charactersList.map(insertHtml2).join('')
+        modal.innerHTML = newHtml
     })
     document.querySelector('#modal-overlay').classList.add('active');
 }
@@ -119,7 +117,7 @@ window.addEventListener('scroll', () => {
 
 
 // BOTÃO VOLTAR AO TOPO
-const buttonTop = document.querySelector('.botao-topo');
+const buttonTop = document.querySelector('.btn-top');
 
 function scrollTop() {
     document.addEventListener('scroll', () => {
