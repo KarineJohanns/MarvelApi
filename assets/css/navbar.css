@@ -1,5 +1,5 @@
 /* NAVBAR ESTILO */
-.navbar {
+.navbarMeu {
   position: fixed;
   top: 0;
   width: 100%;
@@ -29,7 +29,7 @@
 }
 
 .search-box:hover>#search-txt {
-  width: 15rem;
+  width: 13rem;
 }
 
 .search-box:hover>.search-btn {
@@ -94,6 +94,7 @@ input[type="checkbox"] {
   display: none;
   font-size: 24px;
   user-select: none;
+  padding-right: .5rem;
 }
 /* APLICAÇÃO MEDIA QUERIES */
 @media (max-width: 768px) {
@@ -121,10 +122,19 @@ input[type="checkbox"] {
   .hamburger {
     display: block;
   }
+  #search-txt {
+    width: 12rem;
+  }
 
 }
-@media (max-width: 463px) {
+@media (max-width: 478px) {
   #search-txt {
-    width: 7em;
+    width: 9em;
+  }
+  .search-box:hover>#search-txt {
+    width: 13rem;
+  }
+  .logo img {
+    display: none;
   }
 }

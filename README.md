@@ -1,9 +1,6 @@
 ![Logo Marvell](https://logosmarcas.net/wp-content/uploads/2020/11/Marvel-Logo-2012-2014.png)
 ![Badge em Desenvolvimento](https://img.shields.io/badge/STATUS-EM%20DESENVOLVIMENTO-brightgreen)
-<<<<<<< HEAD
 
-=======
->>>>>>> eca7548ebe7235b0c6b264f0434a113bf79b03c2
 # [Acesse aqui o projeto](https://abre.ai/marvelkarine)
 # Personagens Marvel
 
@@ -41,11 +38,3 @@ Tela de contato:
 *  CSS <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" width="20" height="20"/>
 *  JavaScript <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" width="20" height="20"/>
 *  Bootstrap <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" width="20" height="20"/>
-          
-          
-          
-<<<<<<< HEAD
-          
-=======
-          
->>>>>>> eca7548ebe7235b0c6b264f0434a113bf79b03c2

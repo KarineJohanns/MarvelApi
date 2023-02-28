@@ -70,13 +70,11 @@ const modalToggle = () => {
 }
 function insertHtml2(character) {
     return `
-        <div id="modal">
             <span id="name">${character.name}</span>
             <div class="modal-details">
                 <img id="photoDetails" src="${character.thumbnail.path}/portrait_uncanny.${character.thumbnail.extension}" alt="">
                 <span id="description">${character.description}</span>
             </div>
-        </div>
     `
 }
 const modal = document.getElementById('modal');

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> -->
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <title>Marvel Personagens</title>
 
     <!-- FONTE ROBOTO -->
@@ -94,13 +94,13 @@
                     <div class="modal-footer">
                         <button type="submit" value="Submit" class="btn btn-enviar">Enviar</button>
                     </div>
-                    <!-- <input type="hidden" name="redirectTo" value="index.html"> -->
+                    <input type="hidden" name="redirectTo" value="https://abre.ai/marvelkarine">
                 </form>
             </article>
         </section>
 
         <!-- NAVBAR -->
-        <nav class="navbar">
+        <nav class="navbarMeu">
             <!-- LOGO -->
             <div class="logo">
                 <a href="./index.html"><img src="./assets/img/Marvel_Logo.png" alt="Logo Marvel"></a>
@@ -132,7 +132,7 @@
 
             </ol>
         </section>
-
+        <!-- DETALHES DO PERSONAGEM -->
         <section id="modal-overlay" onclick="modalToggle()">
             <div id="modal">
                 <span id="number"></span>
@@ -140,6 +140,8 @@
                 <span id="description"></span>
             </div>
         </section>
+
+        <!-- CIRCULOS LOADER -->
         <div class="loader">
             <div class="circle"></div>
             <div class="circle"></div>
