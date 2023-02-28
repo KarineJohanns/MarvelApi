@@ -1,5 +1,6 @@
 ![Logo Marvell](https://logosmarcas.net/wp-content/uploads/2020/11/Marvel-Logo-2012-2014.png)
 ![Badge em Desenvolvimento](https://img.shields.io/badge/STATUS-EM%20DESENVOLVIMENTO-brightgreen)
+# [Acesse aqui o projeto](https://abre.ai/marvelkarine)
 # Personagens Marvel
 
 Este projeto foi feito para aperfeiçoar os conhecimentos com Fetch/API e aprendi também sobre Async/Await, promisses, aprofundei os conhecimentos em functions e arrow functions.
