@@ -1,6 +1,9 @@
 ![Logo Marvell](https://logosmarcas.net/wp-content/uploads/2020/11/Marvel-Logo-2012-2014.png)
 ![Badge em Desenvolvimento](https://img.shields.io/badge/STATUS-EM%20DESENVOLVIMENTO-brightgreen)
+<<<<<<< HEAD
 
+=======
+>>>>>>> eca7548ebe7235b0c6b264f0434a113bf79b03c2
 # [Acesse aqui o projeto](https://abre.ai/marvelkarine)
 # Personagens Marvel
 
@@ -41,4 +44,8 @@ Tela de contato:
           
           
           
+<<<<<<< HEAD
           
+=======
+          
+>>>>>>> eca7548ebe7235b0c6b264f0434a113bf79b03c2
